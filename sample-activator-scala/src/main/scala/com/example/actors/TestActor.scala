@@ -8,11 +8,18 @@ import MyActor._
 object TestActor extends scala.App {
 
   val system = ActorSystem("mySystem")
-  val myActor = system.actorOf(Props[MyActor], "myActor2")
+  val myActor2 = system.actorOf(Props[MyActor], "myActor2")
+  val myActor3 = system.actorOf(Props[MyActor], "myActor3")
+  val myActor4 = system.actorOf(Props[MyActor], "myActor4")
 
-  myActor ! Greeting("Abhinav")
-  myActor ! GoodBye
-  myActor ! """Hello"""
-  myActor ! 2
+  myActor2 ! Greeting("Abhinav")
+  myActor3 ! Greeting("Prakash")
+  myActor4 ! Greeting("Adroit")
+  myActor2 ! GoodBye
+  myActor4 ! GoodBye
+  myActor3 ! GoodBye
+
+  myActor2 ! """Hello"""
+  myActor2 ! 2
 
 }
